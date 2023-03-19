@@ -15,8 +15,6 @@ It will generate a project with the following structure:
 │   │   ├── config.go
 │   │── app.env
 │   ├── main.go
-│   ├── go.mod
-│   ├── go.sum
 │   ├── Makefile
 │   ├── sqlc.yaml
 ```
