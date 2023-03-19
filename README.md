@@ -1,6 +1,7 @@
 # Genie-Gen
 ## Description
 A simple cli tool to generate a Go Backend project using gin-gonic, sqlc, viper and postgresql.
+It will generate a basic structure only, some modifications will be required to make it production ready and error free.
 It will generate a project with the following structure:
 ```
 ├── pkgName
