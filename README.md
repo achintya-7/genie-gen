@@ -47,3 +47,4 @@ Follow the prompts to generate the project.
 4. sqlc (optional)
 
 ## Demo
+![genie_demo](https://user-images.githubusercontent.com/67036708/226205523-f653b3f1-82ad-44cd-8661-467d937a6778.gif)
