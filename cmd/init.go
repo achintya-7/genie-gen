@@ -19,22 +19,53 @@ var initCmd = &cobra.Command{
 	Builds a new project with the given name.
 	eg. genie-gen init github.com/achintya-7/genie-gen will create a new project with the name genie-gen in the github.com/achintya-7 directory.
 	`,
-	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		projectName := args[0]
+		var projectName string
 
-		fmt.Printf("Initialize project as github.com/%s : [y/n] ", projectName)
+		var respone1 string
+		fmt.Print("Do you want to add a GitHub tag? (y/n) : ")
+		fmt.Scanln(&respone1)
 
-		var response string
-		fmt.Scanln(&response)
+		if respone1 == "n" || respone1 == "N" {
+			projectName = ""
+		} else {
+			projectName = "github.com/"
 
-		if response == "n" || response == "N" {
-			fmt.Println("Aborting...")
-			os.Exit(0)
+			var username string
+			fmt.Print("Enter the GitHub username: ")
+			fmt.Scanln(&username)
+
+			if username == "" {
+				fmt.Println("Username cannot be empty")
+				os.Exit(1)
+			} else {
+				projectName += username + "/"
+			}
+
+		}
+
+		var pkgName string
+		fmt.Print("Enter the project name: ")
+		fmt.Scanln(&pkgName)
+
+		if pkgName == "" {
+			fmt.Println("Project name cannot be empty")
+			os.Exit(1)
+		} else {
+			projectName += pkgName
+		}
+
+		fmt.Println("Project name: ", projectName)
+		fmt.Println("Package name: ", pkgName)
+		fmt.Print("Continue? (y/n) : ")
+		fmt.Scanln(&respone1)
+
+		if respone1 == "n" || respone1 == "N" {
+			os.Exit(1)
 		}
 
 		fmt.Println("Initializing project...")
-		err := processes.Start(projectName)
+		err := processes.Start(pkgName, projectName)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)

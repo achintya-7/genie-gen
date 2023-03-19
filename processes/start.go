@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func Start(pkgName string) error {
+func Start(pkgName string, projectName string) error {
 
 	err := os.Mkdir(pkgName, 0755)
 	if err != nil {
@@ -18,7 +18,7 @@ func Start(pkgName string) error {
 		return err
 	}
 
-	cmd := exec.Command("go", "mod", "init", pkgName)
+	cmd := exec.Command("go", "mod", "init", projectName)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return err
