@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/achintya-7/genie-gen/constant"
 	"github.com/achintya-7/genie-gen/processes"
 	"github.com/spf13/cobra"
 )
@@ -21,6 +22,8 @@ var initCmd = &cobra.Command{
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var projectName string
+
+		fmt.Println(constant.GetArt())
 
 		var respone1 string
 		fmt.Print("Do you want to add a GitHub tag? (y/n) : ")
