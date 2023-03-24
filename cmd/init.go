@@ -116,12 +116,9 @@ var initCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		fmt.Println("Running go mod tidy...")
-		err = processes.End()
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
+		fmt.Println("Run go mod tidy and spam Save to get the dependencies")
+
+		os.Exit(0)
 
 	},
 }
