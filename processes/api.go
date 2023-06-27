@@ -13,7 +13,7 @@ func Api() error {
 		return err
 	}
 
-	file, err := os.Create("api.go")
+	file, err := os.Create("server.go")
 	if err != nil {
 		return err
 	}
